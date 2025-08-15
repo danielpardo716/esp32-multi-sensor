@@ -8,10 +8,10 @@ This repository contains the code and documentation for a multi-sensor to be use
 - DIYables LDR Light Sensor
 
 ## Software
-This project uses the Zephyr framework
+This project uses the Zephyr framework.
 
 ### Building the Project
-TODO
+Using VSCode's Dev Containers extension, open the project in the supplied dev container. Once inside the container, run ```run.sh``` to build the code, flash the device, and start a serial monitor.
 
 ## Future Improvements
 - Use collected data to perform automated tasks (turn lights on/off, open/close shades, turn fan on/off, etc.).
@@ -22,3 +22,5 @@ TODO
 
 ## References
 - [Zephyr Docs](docs.zephyrproject.org/latest/index.html)
+- [Shawn Hymel's Introduction to Zephyr](https://github.com/ShawnHymel/introduction-to-zephyr/tree/main)
+- [Memfault Practical Zephyr](https://interrupt.memfault.com/blog/practical_zephyr_kconfig)

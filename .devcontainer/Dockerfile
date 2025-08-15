@@ -3,8 +3,6 @@
 # Settings
 ARG DEBIAN_VERSION=stable-20241016-slim
 ARG PASSWORD="zephyr"
-# Zephyr 3.7.0 is not working with ESP32S3, see: https://github.com/zephyrproject-rtos/zephyr/issues/71397
-#ARG ZEPHYR_RTOS_VERSION=3.7.0
 ARG ZEPHYR_RTOS_COMMIT=26603cefaf41298c417f2eee834ed40d9ab35d3a
 ARG ZEPHYR_SDK_VERSION=0.16.8
 ARG VS_CODE_SERVER_VERSION=4.93.1
@@ -215,8 +213,5 @@ ENV MC_SKIN=dark
 RUN echo "source ${VIRTUAL_ENV}/bin/activate" >> /root/.bashrc && \
     echo "source /opt/toolchains/zephyr/zephyr-env.sh" >> /root/.bashrc
 
-# # Custom entrypoint
-# COPY scripts/entrypoint.sh /entrypoint.sh
-# RUN chmod +x /entrypoint.sh && \
-#     dos2unix /entrypoint.sh
-# ENTRYPOINT ["/entrypoint.sh"]
+# Custom scripts
+RUN chmod +x scripts/run.sh
