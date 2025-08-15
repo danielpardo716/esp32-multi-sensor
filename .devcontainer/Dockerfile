@@ -13,7 +13,7 @@ ARG VS_CODE_EXT_CPPTOOLS_VERSION=1.22.10
 ARG VS_CODE_EXT_HEX_EDITOR_VERSION=1.11.1
 ARG VS_CODE_EXT_CMAKETOOLS_VERSION=1.19.52
 ARG VS_CODE_EXT_NRF_DEVICETREE_VERSION=2024.9.26
-ARG TOOLCHAIN_LIST="-t xtensa-espressif_esp32_zephyr-elf -t xtensa-espressif_esp32s2_zephyr-elf -t xtensa-espressif_esp32s3_zephyr-elf"
+ARG TOOLCHAIN_LIST="-t xtensa-espressif_esp32_zephyr-elf"
 ARG WGET_ARGS="-q --show-progress --progress=bar:force:noscroll"
 ARG VIRTUAL_ENV=/opt/venv
 
@@ -197,9 +197,6 @@ RUN cd /tmp && \
     rm hexeditor.vsix && \
     rm nordic-semiconductor.nrf-devicetree.vsix
 
-# Copy workspace configuration
-# COPY scripts/zephyr.code-workspace /zephyr.code-workspace
-
 #-------------------------------------------------------------------------------
 # Optional Settings
 
@@ -218,8 +215,8 @@ ENV MC_SKIN=dark
 RUN echo "source ${VIRTUAL_ENV}/bin/activate" >> /root/.bashrc && \
     echo "source /opt/toolchains/zephyr/zephyr-env.sh" >> /root/.bashrc
 
-# Custom entrypoint
-COPY scripts/entrypoint.sh /entrypoint.sh
-RUN chmod +x /entrypoint.sh && \
-    dos2unix /entrypoint.sh
-ENTRYPOINT ["/entrypoint.sh"]
+# # Custom entrypoint
+# COPY scripts/entrypoint.sh /entrypoint.sh
+# RUN chmod +x /entrypoint.sh && \
+#     dos2unix /entrypoint.sh
+# ENTRYPOINT ["/entrypoint.sh"]
