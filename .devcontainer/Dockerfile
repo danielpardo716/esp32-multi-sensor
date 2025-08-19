@@ -212,6 +212,3 @@ ENV MC_SKIN=dark
 # Activate the Python and Zephyr environments for shell sessions
 RUN echo "source ${VIRTUAL_ENV}/bin/activate" >> /root/.bashrc && \
     echo "source /opt/toolchains/zephyr/zephyr-env.sh" >> /root/.bashrc
-
-# Custom scripts
-RUN chmod +x scripts/run.sh
