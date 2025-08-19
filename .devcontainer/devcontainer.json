@@ -1,0 +1,35 @@
+{
+  "name": "Zephyr Development Environment for Espressif",
+  "build": {
+    "dockerfile": "Dockerfile",
+    "context": ".."
+  },
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "ms-vscode.cpptools",
+        "ms-vscode.cmake-tools",
+        "nordic-semiconductor.nrf-devicetree",
+        "ms-vscode.hexeditor"
+      ]
+    }
+  },
+  "forwardPorts": [],
+  "workspaceMount": "source=${localWorkspaceFolder},target=/workspaces/esp32-multi-sensor,type=bind,consistency=cached",
+  "workspaceFolder": "/workspaces/esp32-multi-sensor",
+  "runArgs": [
+    "--name",
+    "ESP32-Multi-Sensor",
+    "--rm",
+    "-it",
+    "-p",
+    "2222:22",
+    "-p",
+    "3333:3333",
+    "-p",
+    "8800:8800",
+    "--device=/dev/ttyUSB0:/dev/ttyUSB0",
+    "--privileged"
+  ],
+  "remoteUser": "root"
+}
