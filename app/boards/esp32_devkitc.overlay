@@ -9,16 +9,20 @@
     // Power led on pin 13
     leds {
         compatible = "gpio-leds";
-        led0: d13 {
+        led0: pin13 {
             gpios = <&gpio0 13 GPIO_ACTIVE_HIGH>;
         };
     };
 
     // PIR motion sensor on pin 4
-    pir0: pir0 {
-        compatible = "gpio-keys";               // Basic GPIO
-        gpios = <&gpio0 4 GPIO_ACTIVE_HIGH>;
-        status = "okay";
+    gpio-inputs {
+        compatible = "gpio-keys";
+        debounce-interval-ms = <1000>;
+
+        pir0: pin4 {
+            gpios = <&gpio0 4 GPIO_ACTIVE_HIGH>;
+            status = "okay";
+        };
     };
 
     // Temperature/humidity sensor on pin 2
