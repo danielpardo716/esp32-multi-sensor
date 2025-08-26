@@ -1,7 +1,9 @@
 / {
     aliases {
         power-led = &led0;
+        pir-motion-sensor = &pir0;
         temp-humidity-sensor = &dht11;
+        // ldr-light-sensor = &ldr0;
     };
 
     // Power led on pin 13
@@ -12,11 +14,25 @@
         };
     };
 
-    // Temperature/humidity sensor on pin 4
+    // PIR motion sensor on pin 4
+    pir0: pir0 {
+        compatible = "gpio-keys";               // Basic GPIO
+        gpios = <&gpio0 4 GPIO_ACTIVE_HIGH>;
+        status = "okay";
+    };
+
+    // Temperature/humidity sensor on pin 2
     // These sensors use single-wire communication with a pull-up resistor.
     dht11: dht11 {
         compatible = "aosong,dht";
-        dio-gpios = <&gpio0 4 (GPIO_OPEN_DRAIN | GPIO_PULL_UP | GPIO_ACTIVE_LOW)>;
+        dio-gpios = <&gpio0 2 (GPIO_OPEN_DRAIN | GPIO_PULL_UP | GPIO_ACTIVE_LOW)>;
         status = "okay";
     };
+
+//     // LDR light sensor on ADC1 channel 6 (GPIO34)
+//     ldr0: ldr0 {
+//         compatible = "adc-ldr";          // TODO: Create custom ADC LDR driver
+//         io-channels = <&adc 1 6>;
+//         status = "okay";
+//     };
 };

@@ -4,7 +4,7 @@ This repository contains the code and documentation for a multi-sensor to be use
 ## Hardware
 - ESP32 (38-Pin)
 - DHT11 Temperature & Humidity Sensor
-- HC-SR501 PIR Motion Sensor
+- DSN-FIR800 / HC-SR501 PIR Motion Sensor
 - DIYables LDR Light Sensor
 
 ## Software
@@ -23,4 +23,4 @@ Using VSCode's Dev Containers extension, open the project in the supplied dev co
 ## References
 - [Zephyr Docs](docs.zephyrproject.org/latest/index.html)
 - [Shawn Hymel's Introduction to Zephyr](https://github.com/ShawnHymel/introduction-to-zephyr/tree/main)
-- [Memfault Practical Zephyr](https://interrupt.memfault.com/blog/practical_zephyr_kconfig)
+- [Memfault Practical Zephyr](https://interrupt.memfault.com/tags#practical-zephyr-series)
