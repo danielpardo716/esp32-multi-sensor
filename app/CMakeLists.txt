@@ -11,5 +11,10 @@ project(
     LANGUAGES C
 )
 
+file(GLOB APP_SOURCES
+    src/*.c
+    src/sensors/*.c
+)
+
 # Locate the source code for the application
-target_sources(app PRIVATE src/main.c)
+target_sources(app PRIVATE ${APP_SOURCES})

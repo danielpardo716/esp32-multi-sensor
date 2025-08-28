@@ -19,7 +19,7 @@ usbipd list
 usbipd bind --busid=<BUSID>
 usbipd attach --wsl --busid=<BUSID>
 ```
-<BUSID> is found using the first command. The attach command needs to be run each time the ESP32 is plugged into the computer. Once this is done, run ```ls -l /dev/ttyUSB*``` in the container to verify there is a visible port.
+<BUSID> is found using the first command. The attach command needs to be run each time the ESP32 is plugged into the computer. Once this is done, reload the container and run ```ls -l /dev/ttyUSB*``` in the container to verify there is a visible port.
 
 The script ```run.sh``` is provided to build the code, flash the device, and start a serial monitor.
 
