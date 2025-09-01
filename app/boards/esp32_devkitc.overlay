@@ -1,8 +1,11 @@
+// Root node - add aliases and new device nodes
 / {
     aliases {
         power-led = &led0;
         pir-motion-sensor = &pir0;
         temp-humidity-sensor = &dht11;
+        ldr-adc-device = &adc0;
+        ldr-adc-channel = &adc0_ch6;
         // ldr-light-sensor = &ldr0;
     };
 
@@ -39,4 +42,21 @@
 //         io-channels = <&adc 1 6>;
 //         status = "okay";
 //     };
+};
+
+// Fragments - modify existing nodes outside the root node
+// Enable ADC1 (adc0) (needed for LDR)
+&adc0 {
+    status = "okay";
+    #address-cells = <1>;
+    #size-cells = <0>;
+
+    adc0_ch6: channel@6 {
+        reg = <6>;                                          // ADC1 channel 6 (GPIO34)
+        zephyr,gain = "ADC_GAIN_1_4";                       // 11dB attenuation (full-scale ~3.54V)
+        zephyr,reference = "ADC_REF_INTERNAL";
+        zephyr,vref-mv = <3894>;                            // Reference voltage in mV: 1.1V * 3.54 (attenuation factor)
+        zephyr,acquisition-time = <ADC_ACQ_TIME_DEFAULT>;
+        zephyr,resolution = <12>;                           // 12-bit ADC
+    };
 };
