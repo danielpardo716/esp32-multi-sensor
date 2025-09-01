@@ -1,3 +1,6 @@
+#ifndef DHT11_H
+#define DHT11_H
+
 #include <zephyr/drivers/sensor.h>
 
 /**
@@ -12,3 +15,5 @@ void dht_checkInit();
  * @param humidity Pointer to a sensor_value struct to store the humidity.
  */
 void dht11_getTemperatureAndHumidity(struct sensor_value* temp, struct sensor_value* humidity);
+
+#endif
