@@ -7,5 +7,10 @@
 			"path": "../../../opt/toolchains/zephyr"
 		}
 	],
-	"settings": {}
+	"settings": {
+		"files.associations": {
+			"cerrno": "c",
+			"cstdlib": "c"
+		}
+	}
 }

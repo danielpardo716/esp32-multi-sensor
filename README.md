@@ -27,6 +27,7 @@ The script ```run.sh``` is provided to build the code, flash the device, and sta
 - Use collected data to perform automated tasks (turn lights on/off, open/close shades, turn fan on/off, etc.).
 - Create streamlined hardware including:
     - Custom PCB
+    - JTAG Debug Header
     - 3D-printed case
     - Coin battery power circuit
 

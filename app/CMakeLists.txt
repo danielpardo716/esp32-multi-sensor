@@ -13,7 +13,8 @@ project(
 
 file(GLOB APP_SOURCES
     src/*.c
-    src/sensors/*.c
+    src/network/*.c
+    # src/sensors/*.c
 )
 
 # Locate the source code for the application

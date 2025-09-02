@@ -1,0 +1,17 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": "ESP32 GDB Stub Debug",
+      "type": "cppdbg",
+      "request": "launch",
+      "program": "${workspaceFolder}/build/zephyr/zephyr.elf",
+      "cwd": "${workspaceFolder}",
+      "MIMode": "gdb",
+      "miDebuggerPath": "/opt/xtensa-esp32-elf/bin/xtensa-esp32-elf-gdb",
+      "targetArchitecture": "xtensa",
+      "miDebuggerServerAddress": "/dev/ttyUSB0",
+      "externalConsole": true
+    }
+  ]
+}
